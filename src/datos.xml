@@ -1,0 +1,17 @@
+<?xml version= "1.0" encoding="UTF-8"?>
+<CATALOGO>
+<cd>
+    <Titulo>Music on Festival</Titulo>
+    <Artista>Joseph capriati</Artista>
+    <Origen> Italia</Origen>
+    <Precio> 1.000.000</Precio>
+    <Anio> 2023 </Anio>
+</cd>
+<cd>
+    <Titulo>Vintage Culture live</Titulo>
+    <Artista>Tale of us</Artista>
+    <Origen> Mexico</Origen>
+    <Precio> 2.000.000</Precio>
+    <Anio> 2022 </Anio>
+</cd>
+</CATALOGO>

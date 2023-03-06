@@ -1,0 +1,66 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    </meta>
+    <title> show xml data</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="texto">
+        <h1>DATA XML</h1>
+        <button id="loadData"> Load xml data</button>
+    </div>
+    <table id="demo"></table>
+
+    <script>
+        document.getElementById("loadData").addEventListener("click", loadData);
+
+        function loadData() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    loadXML(this);
+                }
+            };
+            xhr.open("GET", "datos.xml", true);
+            xhr.send();
+        }
+
+        function loadXML(xml) {
+            var docXML = xml.responseXML;
+            var table = "<tr><th>Titulo</th> <th>Artista</th> <th>Origen</th> <th>Precio</th> <th>Anio</th></tr>";
+            var xmlElemntes = docXML.getElementsByTagName("cd");
+
+            for (var i = 0; i < xmlElemntes.length; i++) {
+                table += "<tr><td>";
+                table += xmlElemntes[i].getElementsByTagName("Titulo")[0].textContent;
+                table += "</td><td>";
+                table += xmlElemntes[i].getElementsByTagName("Artista")[0].textContent;
+                table += "</td><td>";
+                table += xmlElemntes[i].getElementsByTagName("Origen")[0].textContent;
+                table += "</td><td>";
+                table += xmlElemntes[i].getElementsByTagName("Precio")[0].textContent;
+                table += "</td><td>";
+                table += xmlElemntes[i].getElementsByTagName("Anio")[0].textContent;
+                table += "</td></tr>";
+            }
+            document.getElementById("demo").innerHTML = table;
+        }
+    </script>
+</body>
+
+</html>
